@@ -36,20 +36,21 @@ public class BetsApplicationTests {
 	private BetController betController;
 	@Autowired
 	private ObjectMapper objectMapper;
-	private MockMvc mockMvc;
-
 	@Autowired
 	private BetRepository betRepository;
 
+	private MockMvc mockMvc;
 	private Bet betPN, betAN, betPH;
 
 	@Before
 	public void setup() {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(betController).build();
+
 		// populate repository
 		betPN = new Bet(1L, "Jan", "Mecz Polska-Niemcy", 100);
 		betAN = new Bet(2L, "Piotr", "Mecz Austria-Niemcy", 400);
 		betPH = new Bet(3L, "Jan", "Mecz Polska-Hiszpania", 300);
+
 		betRepository.save(betPN);
 		betRepository.save(betAN);
 		betRepository.save(betPH);
@@ -60,6 +61,7 @@ public class BetsApplicationTests {
 	public void addBetTest() throws Exception {
 		//given
 		Bet bet = new Bet(1L, "Marcin", "Mecz Polska-Niemcy", 200);
+
 		// when, then
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/bets")
 				.contentType(MediaType.APPLICATION_JSON)
