@@ -17,7 +17,7 @@ Bets for specified player are retrieved by GET method (locahost:8080/bets/{playe
 
 ## How To
 - clone repository from github
-git clone https://github.com/sum-mer/gp_rest_bets.git
+git clone https://github.com/sum-mer/GP_REST_API_bets.git
 
 run from IDE:
 
